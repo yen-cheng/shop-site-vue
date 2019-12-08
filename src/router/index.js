@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Products from '../views/Products.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import EditProduct from '../views/EditProduct.vue'
+import AddProduct from '../views/AddProduct.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +30,16 @@ const routes = [
         component: EditProduct
       }
     ]
+  },
+  {
+    path: '/addProduct',
+    name: 'addProduct',
+    component: AddProduct
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {path: '*', redirect: '/'}
 ]

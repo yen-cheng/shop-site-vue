@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         Edit product page
     </div>
 </templat>

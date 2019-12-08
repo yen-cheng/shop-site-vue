@@ -1,10 +1,8 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div>
-                <add-header></add-header>
-                <router-view></router-view>
-            </div>
+    <div>
+        <div>
+            <add-header></add-header>
+            <router-view></router-view>
         </div>
     </div>
 </template>
