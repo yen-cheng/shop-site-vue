@@ -17,7 +17,7 @@
                         <a class="nav-link">Product detail</a>
                     </router-link>
                 </ul>
-                <a href="/login" class="btn btn-outline-light ml-auto">Login</a>
+                <router-link to="/login" tag="a" class="btn btn-outline-light ml-auto">Login</router-link>
             </div>
         </nav>
     </div>
