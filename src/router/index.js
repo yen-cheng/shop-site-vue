@@ -6,6 +6,7 @@ import ProductDetail from '../views/ProductDetail.vue'
 import EditProduct from '../views/EditProduct.vue'
 import AddProduct from '../views/AddProduct.vue'
 import Login from '../views/Login.vue'
+import Signup from '../views/Signup.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: Signup
   },
   {path: '*', redirect: '/'}
 ]

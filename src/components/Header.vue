@@ -11,13 +11,13 @@
                         <a class="nav-link">Home</a>
                     </router-link>
                     <router-link to="/products" tag="li" active-class="active" class="nav-item">
-                        <a class="nav-link">Products</a>
-                    </router-link>
-                    <router-link to="/product/5" tag="li" active-class="active" class="nav-item">
-                        <a class="nav-link">Product detail</a>
+                        <a class="nav-link">商品一覧</a>
                     </router-link>
                 </ul>
-                <router-link to="/login" tag="a" class="btn btn-outline-light ml-auto">Login</router-link>
+                <div class="ml-auto">
+                    <router-link to="/signup" tag="a" class="btn btn-outline-light">新規登録</router-link>
+                    <router-link to="/login" tag="a" class="btn btn-outline-light ml-1">ログイン</router-link>
+                </div>
             </div>
         </nav>
     </div>

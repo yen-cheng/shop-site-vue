@@ -5,7 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products:[]
+    products:{
+      data:[],
+      count: 0
+    }
   },
   mutations: {
   },

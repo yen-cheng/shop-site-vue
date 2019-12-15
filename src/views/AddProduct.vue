@@ -38,6 +38,7 @@ export default{
     data(){
         return {
             product:{
+                pid: null,
                 name: "",
                 price: 0,
                 url: "",
@@ -48,7 +49,8 @@ export default{
     },
     methods: {
         addProduct(){
-            this.$store.state.products.push(this.product);
+            this.product.pid = ++this.$store.state.products.count;
+            this.$store.state.products.data.push(this.product);
             this.$router.push({path: "/products"});
         }
     }
