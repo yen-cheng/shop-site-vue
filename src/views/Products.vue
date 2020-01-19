@@ -1,17 +1,7 @@
 <template>
     <div class="container">
         <div class="card-columns mt-5">
-            <div class="card" v-for="product in products.data">
-                <img :src="product.url" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h3 class="card-title">{{ product.name}}</h3>
-                    <p class="card-text">{{product.description}}</p>
-                </div>
-                <div class="card-footer text-info d-flex justify-content-between">${{product.price}}
-                    <button @click.prevent="goProductDetail(product.pid)" class="btn btn-dark btn-sm">詳細</button>
-                    <button class="btn btn-dark btn-sm">カート</button>
-                </div>
-            </div>
+            <product-card v-for="product in products.data" :product="product"></product-card>
         </div>
         <div class="row mb-3 justify-content-center">
             <div class="column col-3">
@@ -22,12 +12,11 @@
 </template>
 
 <script>
+import ProductCard from "../components/ProductCard.vue"
+
 export default{
-    methods:{
-        goProductDetail(pid){
-            var path = "/product/" + pid;
-            this.$router.push({path: path});
-        }
+    components:{
+        productCard:ProductCard
     },
     computed:{
         products(){

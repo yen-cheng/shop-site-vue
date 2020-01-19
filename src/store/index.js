@@ -8,6 +8,9 @@ export default new Vuex.Store({
     products:{
       data:[],
       count: 0
+    },
+    todoList:{
+      data:[]
     }
   },
   mutations: {

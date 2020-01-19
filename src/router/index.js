@@ -7,6 +7,7 @@ import EditProduct from '../views/EditProduct.vue'
 import AddProduct from '../views/AddProduct.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
+import Todolist from '../views/Todolist.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,11 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: Signup
+  },
+  {
+    path:'/todolist',
+    name:'todolist',
+    component: Todolist
   },
   {path: '*', redirect: '/'}
 ]

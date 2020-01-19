@@ -13,6 +13,9 @@
                     <router-link to="/products" tag="li" active-class="active" class="nav-item">
                         <a class="nav-link">商品一覧</a>
                     </router-link>
+                    <router-link to="/todolist" tag="li" active-class="active" class="nav-item">
+                        <a class="nav-link">代辦事項</a>
+                    </router-link>
                 </ul>
                 <div class="ml-auto">
                     <router-link to="/signup" tag="a" class="btn btn-outline-light">新規登録</router-link>
