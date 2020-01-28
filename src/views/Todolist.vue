@@ -19,7 +19,7 @@ export default{
         axios.get("/admin/todolists")
             .then(res => {
                 console.log(res);
-                this.todoLists = res.data.todoLists;
+                this.todoLists = res.data.data;
             })
             .catch(err => {
                 console.log(err);
@@ -55,7 +55,7 @@ export default{
             axios.get("/admin/todolists")
             .then(res => {
                 console.log(res);
-                this.todoLists = res.data.todoLists;
+                this.todoLists = res.data.data;
                 console.log(this.todoLists);
             })
             .catch(err => {

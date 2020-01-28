@@ -4,7 +4,7 @@
         <form>
             <div class="form-group">
                 <label for="productName">商品名 </label>
-                <input v-model="product.name" :readonly="checked" type="text" id="productName" class="form-control">
+                <input v-model="product.title" :readonly="checked" type="text" id="productName" class="form-control">
             </div>
             <div class="form-group">
                 <label for="price">金額 </label>
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="photoUrl">画像リンク </label>
-                <input v-model="product.url" :readonly="checked" type="text" id="photoUrl" class="form-control">
+                <input v-model="product.imgUrl" :readonly="checked" type="text" id="photoUrl" class="form-control">
             </div>
             <div class="form-group">
                 <label for="description">商品紹介 </label>
@@ -25,23 +25,24 @@
             </div>
         </form>
         <ul class="list-group mt-5" v-show="checked">
-            <li class="list-group-item">商品名：　{{product.name}}</li>
+            <li class="list-group-item">商品名：　{{product.title}}</li>
             <li class="list-group-item">金額：　${{product.price}}</li>
-            <li class="list-group-item">リンク：<br>{{product.url}}</li>
+            <li class="list-group-item">リンク：<br>{{product.imgUrl}}</li>
             <li class="list-group-item">説明：<br>{{product.description}}</li>
         </ul>
     </div>
 </template>
 
 <script>
+import axios from "axios"
+
 export default{
     data(){
         return {
             product:{
-                pid: null,
-                name: "",
+                title: "",
                 price: 0,
-                url: "",
+                imgUrl: "",
                 description: ""
             },
             checked: false
@@ -49,9 +50,14 @@ export default{
     },
     methods: {
         addProduct(){
-            this.product.pid = ++this.$store.state.products.count;
-            this.$store.state.products.data.push(this.product);
-            this.$router.push({path: "/products"});
+            axios.post("/admin/product", this.product)
+                .then(res => {
+                    console.log(res);
+                    this.$router.push({path: "/products"});
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         }
     }
 }

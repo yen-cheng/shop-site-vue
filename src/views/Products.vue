@@ -13,14 +13,30 @@
 
 <script>
 import ProductCard from "../components/ProductCard.vue"
+import axios from "axios"
 
 export default{
+    created(){
+        axios.get("/admin/products")
+            .then(res => {
+                console.log(res);
+                this.products.data = res.data.data;
+                this.products.count = res.data.data.length;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    },
     components:{
         productCard:ProductCard
     },
-    computed:{
-        products(){
-            return this.$store.state.products;
+
+    data(){
+        return {
+            products:{
+                data:[],
+                count:0
+            }
         }
     }
 }
