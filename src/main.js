@@ -6,6 +6,7 @@ import './registerServiceWorker'
 
 import "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+window.$ = window.jQuery = require('jquery');
 import axios from "axios"
 
 Vue.config.productionTip = false
