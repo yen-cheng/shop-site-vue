@@ -2,7 +2,9 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
         {{todo.content}}
         <div>
-            <span class="badge badge-primary badge-pill mr-3">進行中</span>
+            <span v-if="todo.status=='0'" class="badge badge-secondary badge-pill mr-3">未完成</span>
+            <span v-else-if="todo.status=='1'" class="badge badge-primary badge-pill mr-3">進行中</span>
+            <span v-else="todo.status=='2'" class="badge badge-success badge-pill mr-3">已完成</span>
             <div class="btn-group" role="group" aria-label="buttonAction">
                 <button type="button" class="btn btn-sm btn-dark badge-pill" 
                     data-toggle="modal" 
@@ -13,9 +15,9 @@
             </div>
         </div>
         <todo-detail :todo="todo"
+                    @invokeReloadTodo="invokeReloadTodo"
                     class="modal fade" 
                     :id="'todoDetailModal'+id"
-                    @saveChange="saveChange" 
                     tabindex="-1" role="dialog" 
                     aria-labelledby="todoDetailModalLabel" 
                     aria-hidden="true"></todo-detail>
@@ -43,13 +45,12 @@ export default{
             axios.delete("/admin/todolist/" + this.todo.id)
                 .then(res => {
                     console.log("delete todo success!");
-                    this.$emit("reload");
+                    this.invokeReloadTodo();
                 })
                 .catch(err => console.log(err));
         },
-        saveChange(id){
-            //$(id).modal('hide');
-            console.log("its work")
+        invokeReloadTodo(){
+            this.$emit("reload");
         }
     }
 }

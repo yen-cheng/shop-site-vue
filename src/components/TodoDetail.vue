@@ -30,27 +30,24 @@
                     <div class="row">
                         <div class="form-group col">
                             <label for="type">Type</label>
-                            <select id="type" class="form-control">
-                                <option value="1" selected>基本功能</option>
-                                <option value="2">特色功能</option>
-                                <option value="3">障害改善</option>
+                            <select v-model="todoDetail.type" id="type" class="form-control">
+                                <option value="1" :selected="todoDetail.type=='1'">基本功能</option>
+                                <option value="2" :selected="todoDetail.type=='2'">特色功能</option>
+                                <option value="3" :selected="todoDetail.type=='3'">障害改善</option>
                             </select>
                         </div>
                         <div class="form-group col">
                             <label for="type">Status</label>
-                            <select id="type" class="form-control">
-                                <option value="0" selected>未進行</option>
-                                <option value="1">進行中</option>
-                                <option value="2">已完成</option>
+                            <select v-model="todoDetail.status" id="type" class="form-control">
+                                <option value="0" :selected="todoDetail.status=='0'">未進行</option>
+                                <option value="1" :selected="todoDetail.status=='1'">進行中</option>
+                                <option value="2" :selected="todoDetail.status=='2'">已完成</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <div class="btn-group" role="group" aria-label="buttonAction">
-                        <button type="button" class="btn btn-sm btn-dark">切換狀態</button>
-                        <button type="button" class="btn btn-sm btn-danger">刪除</button>
-                    </div>
+                    <button type="button" class="btn btn-sm btn-danger">刪除</button>
                     <div>
                         <button type="button" class="btn btn-secondary mr-1" data-dismiss="modal">Close</button>
                         <button @click="saveChange" type="button" class="btn btn-primary">Save</button>
@@ -84,8 +81,16 @@ export default{
         saveChange(){
             const elementId = '#todoDetailModal'+this.todoDetail.id;
             console.log(this.todoDetail);
+            const putUrl = "/admin/todolist/" + this.todoDetail.id;
+            axios.put(putUrl, this.todoDetail)
+            .then(res => {
+                console.log("Edit todo success!");
+                this.$emit("invokeReloadTodo");
+            })
+            .catch(err => {
+                console.log(err);
+            })
             $(elementId).modal('hide');
-            this.$emit('saveChange',elementId);
         }
     }
 }
