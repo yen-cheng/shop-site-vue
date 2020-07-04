@@ -12,7 +12,9 @@
                             v-focus 
                             class="form-control" 
                             type="text">
-                    <span class="badge badge-primary badge-pill mt-3 ml-5">進行中</span>
+                    <span v-if="todoDetail.status=='0'" class="badge badge-secondary badge-pill mt-3 ml-5">未完成</span>
+                    <span v-else-if="todoDetail.status=='1'" class="badge badge-primary badge-pill mt-3 ml-5">進行中</span>
+                    <span v-else="todoDetail.status=='2'" class="badge badge-success badge-pill mt-3 ml-5">已完成</span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
