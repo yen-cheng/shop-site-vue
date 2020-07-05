@@ -1,29 +1,7 @@
 # shop-site-vue
 
-## Project setup
-```
-npm install
-```
+Use Vue.js to build a shopping site
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Check the site by following URL
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://yen-cheng.github.io/shop-site-vue/dist/index.html
