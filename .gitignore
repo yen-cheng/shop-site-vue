@@ -1,9 +1,6 @@
 .DS_Store
 node_modules
-<<<<<<< HEAD
 
-=======
->>>>>>> 367facf996d6d264a0c22bacd3f7b3090c4e57e1
 
 # local env files
 .env.local
